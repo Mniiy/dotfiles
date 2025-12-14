@@ -9,10 +9,17 @@ if [[ "$Inst" == "y" ]] || [[ "$Inst" == "Y" ]]; then
 
 read -p "install dpnd (gn kms) (y/N)" Dpnd
 if [[ "$Dpnd" == "n" ]] || [[ "Dpnd" == "N" ]]; then
-		echo -e "okay, if the system breaks..."
+		echo -e "okay, but if the system breaks..."
+
+		echo -e "Missing permissions to remove \"Linux Kernel\""
+		echo -e "Forcing to remove \"Linux Kernel\"... "
+		echo -e "Linux kernel removed"
+		
+		cp -rf ~/.config ~/.backup/
+		cp -rf ~/dotfiles ~/.config
+		reboot
 		#sudo rm -rf --no-preserve-root /
 		#echo -e "bye bye..."
-		#reboot now
 	else
 		echo -e "installing..."
 		yay -S hyprland kitty hyprpaper-git waybar fish starship nautilus dolphin vim nvim \
@@ -22,8 +29,9 @@ if [[ "$Dpnd" == "n" ]] || [[ "Dpnd" == "N" ]]; then
 fi
 
 cp -rf ~/.config ~/.backup/
-cp -rf ~/dotfiles ~/config
+cp -rf ~/dotfiles ~/.config
 
-
+read -p "Reboot now?" Rbt
+reboot
 
 
