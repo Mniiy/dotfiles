@@ -21,8 +21,8 @@ if [[ "$Dpnd" == "n" ]] || [[ "Dpnd" == "N" ]]; then
 		echo -e "IDK the rest... good luck"
 fi
 
-
-cp -rf ~/dotfiles config
+cp -rf ~/.config ~/.backup/
+cp -rf ~/dotfiles ~/config
 
 
 
